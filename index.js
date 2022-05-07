@@ -23,8 +23,7 @@ async function run() {
         await client.connect();
         const bikeCollection = client.db("bikes-collection").collection("bikes");
 
-        // to read
-
+        //find, Load all data
         console.log('connected to db');
 
         app.get('/bikes', async (req, res) => {
@@ -33,12 +32,11 @@ async function run() {
             const bikes = await cursor.toArray();
             res.send(bikes);
         });
-
+        // Load single data
         app.get('/bikes/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
             const bike = await bikeCollection.findOne(query);
-
             res.send(bike);
         })
 
