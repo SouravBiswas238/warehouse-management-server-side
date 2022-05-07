@@ -6,7 +6,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const port = process.env.PORT || 5000;
 const app = express();
 
-// middlewirw
+// middle Wire
 app.use(cors());
 app.use(express.json());
 
@@ -22,7 +22,8 @@ async function run() {
     try {
         await client.connect();
         const bikeCollection = client.db("bikes-collection").collection("bikes");
-        // to redad
+
+        // to read
 
         console.log('connected to db');
 
