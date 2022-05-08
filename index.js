@@ -40,7 +40,14 @@ async function run() {
             res.send(bike);
         })
 
-        // create bikes information
+        // post data
+        app.post('/bike', async (req, res) => {
+
+            const data = req.body;
+            console.log(data);
+            const bikes = await bikeCollection.insertOne(data);
+            res.send(bikes);
+        })
 
         // update 
     }
