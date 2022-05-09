@@ -61,7 +61,6 @@ async function run() {
                 $set: {
                     quantity: quantity.updateQuantity
                 }
-
             }
             const result = await bikeCollection.updateOne(filter, updateDoc, options);
             res.send(result);
